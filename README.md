@@ -1,17 +1,17 @@
 ## Blackboard Design Pattern Using Python
 
-This repo has an implementationn of the [Blackboard design pattern](https://en.wikipedia.org/wiki/Blackboard_(design_pattern)) in Python
+This repo has an implementation of the [Blackboard design pattern](https://en.wikipedia.org/wiki/Blackboard_(design_pattern)) in Python
 
 ### Components
 
-The module bbpattern has three classes - Blackboard, BBController and KS (KnowledgeSource). The Blackboard object holds a BBTak object which inturn holds a List[BBSubTak] onject. The BBController holds a set of KS objects. The KS object has an asynchronous process() method
+The module bbpattern has three classes - Blackboard, BBController and KS (KnowledgeSource). The Blackboard object holds a BBTask object which inturn holds a List[BBSubTask] object. The BBController holds a set of KS objects. The KS object has an asynchronous process() method. Each KS is specialized in solving a specific problem.
 
 ### How it Works
 
-The Blackboard Pattern solves (partially solves) a large complex problem by assembling part solutions.
+The Blackboard Pattern solves (or partially solves) a large complex problem by assembling part solutions.
 The blackboard engine (the main() method) receives data (possibly as a data stream from various IoT devices) that need to be analyzed and some action taken (like an autonomous vehicle that needs to take the next step).
 
-1. The engine adds the BBController as a subscriber (Observer) to the Blackboard
+1. The engine adds the BBController as a subscriber (Observer) to the Blackboard. It also configues the controller with a set of KS objects.
 2. The engine places each sub-task that it receives from an external source on the Blackboard. 
 3. The Blackboard updates the BBController whenever its state changes (subTask is addded)
 4. The BBController holds a set of KS objects that it can launch as a worker Coroutine by assigning the subTask. Each KS object is specialized in handling a a part of the whole problem. The BBController launches the KS that is knowledgable in handling a specfic subTask.
@@ -20,7 +20,7 @@ The blackboard engine (the main() method) receives data (possibly as a data stre
 
 ### Input / Output
 
-When the module is run (python .\BBPatternApp.py), the following output is generated:
+When the module is run (python BBPatternApp.py), the following output is generated:
 
 &gt;&gt; adding a new subTask to he Blackboard<br>
 &gt;&gt; BBController received a new subTask<br>
