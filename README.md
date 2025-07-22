@@ -20,7 +20,7 @@ The blackboard engine (the main() method) receives data (possibly as a data stre
 
 ### Input / Output
 
-When the module is run, the following output is generated:
+When the module is run (python .\BBPatternApp.py), the following output is generated:
 
 &gt;&gt; adding a new subTask to he Blackboard<br>
 &gt;&gt; BBController received a new subTask<br>
