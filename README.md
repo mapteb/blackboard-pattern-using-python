@@ -4,7 +4,7 @@ This repo has an implementation of the [Blackboard design pattern](https://en.wi
 
 ### Components
 
-The module bbpattern has three classes - Blackboard, BBController and KS (KnowledgeSource). The Blackboard object holds a BBTask object which inturn holds a List[BBSubTask] object. The BBController holds a set of KS objects. The KS object has an asynchronous process() method. Each KS is specialized in solving a specific problem.
+The module bbpattern has three classes - Blackboard, BBController and KS (KnowledgeSource). The Blackboard object holds a BBTask object which inturn holds a List[BBSubTask] object. The BBController holds a set of KS objects. The KS object has an asynchronous process() method. Each KS (could be an AI Agent) is specialized in solving a specific problem.
 
 ### How it Works
 
