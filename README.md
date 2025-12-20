@@ -18,17 +18,20 @@ The blackboard engine (the main() method) receives data (possibly as a data stre
 5. The KS worker/s perform the subTask asynchronously. When completed, updates the Blackboard with the completed subTask.
 6. A BBTask is considered completed when all the BBSubTasks have their isComplete() returning True.
 
-### Input / Output
+### Usage
+```
+git clone https://github.com/mapteb/blackboard-pattern-using-python.git
 
-When the module is run (python BBPatternApp.py), the following output is generated:
+When the app is run  using - python src\bbpattern\BBPatternApp.py, the following output is generated:
 
-&gt;&gt; adding a new subTask to he Blackboard<br>
-&gt;&gt; BBController received a new subTask<br>
-&gt;&gt; BBController assigning the subTask to a KS worker<br>
-&gt;&gt; KS worker performing subTask in a Coroutine<br>
-&gt;&gt; Task long-running: Starting...<br>
-&gt;&gt; Task long-running: Finished.<br>
-&gt;&gt; KS completed the subTask and updating the Blackboard<br>
+adding a new subTask to he Blackboard
+BBController received a new subTask
+BBController assigning the subTask to a KS worker
+KS worker performing subTask in a Coroutine
+Task long-running: Starting...
+Task long-running: Finished.
+KS completed the subTask and updating the Blackboar
+```
 
 ### Use Cases
 

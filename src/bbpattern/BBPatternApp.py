@@ -11,7 +11,7 @@ def main():
     bb.subscribe(bbController)
 
     # add subtasks when they arrive (possibly in a stream)
-    print(">> adding a new subTask to he Blackboard")
+    print(">> adding a new subTask to the Blackboard")
     bbSubTask = BBSubTask("id1", "subTask1", False)
     bb.addSubTask(bbSubTask)
 
