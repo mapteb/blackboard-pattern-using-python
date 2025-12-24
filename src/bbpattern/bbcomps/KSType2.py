@@ -4,7 +4,7 @@ from bbcomps.KSInterface import KSInterface
 from bbcomps.BBSubTask import BBSubTask
 from bbcomps.Blackboard import Blackboard
 
-class KSType1(KSInterface):
+class KSType2(KSInterface):
     def __init__(self, name):
         self.name = name       
 

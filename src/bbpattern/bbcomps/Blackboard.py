@@ -7,6 +7,12 @@ from bbcomps.BBSubTask import BBSubTask
 class Blackboard:
     _state: BBTask
     list_lock = threading.Lock()
+    _instance = None 
+    
+    def __new__(cls): 
+        if cls._instance is None: 
+            cls._instance = super().__new__(cls) 
+            return cls._instance
 
     def __init__(self):
         self._observers = []
@@ -19,31 +25,31 @@ class Blackboard:
     def unsubscribe(self, observer):
         self._observers.remove(observer)
 
-    def notify(self, bbSubTask: BBSubTask):
+    def notify(self, bb_sub_task: BBSubTask):
         for observer in self._observers:
-            if not bbSubTask.isComplete:
-                observer.update(bbSubTask)
+            if not bb_sub_task.is_complete:
+                observer.update(bb_sub_task)
 
-    def updateSubTask(self, bbSubTask: BBSubTask):
-        # if the isComplete is False add this subTask as a new task
-        if not bbSubTask.isComplete:
-            self.addSubTask(bbSubTask)
+    def updateSubTask(self, bb_sub_task: BBSubTask):
+        # if the is_complete is False add this sub_task as a new task
+        if not bb_sub_task.is_complete:
+            self.add_sub_task(bb_sub_task)
         else:    
             # multiple KSs could be calling thi
             # so update the list concurrently
             with self.list_lock:  # Acquire lock
                 sts: List[BBSubTask] = []
-                for bbt in self.state.subTasks:
-                    if bbt.id == bbSubTask.id:
-                        sts.append(bbSubTask)
+                for bbt in self.state.sub_tasks:
+                    if bbt.id == bb_sub_task.id:
+                        sts.append(bb_sub_task)
                     else:
                         sts.append(bbt) 
 
-                self._state.subTasks = sts                      
+                self._state.sub_tasks = sts                      
 
-    def addSubTask(self, bbSubTask: BBSubTask):
-        self._state.subTasks.append(bbSubTask)
-        self.notify(bbSubTask)
+    def add_sub_task(self, bb_sub_task: BBSubTask):
+        self._state.sub_tasks.append(bb_sub_task)
+        self.notify(bb_sub_task)
 
     @property
     def state(self):
@@ -51,6 +57,6 @@ class Blackboard:
 
     @state.setter
     def state(self, state):
-        print(">> appending subTasks")
+        print(">> appending sub_tasks")
         self._state = state
-        self.notify()
+        

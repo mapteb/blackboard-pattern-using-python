@@ -24,13 +24,22 @@ git clone https://github.com/mapteb/blackboard-pattern-using-python.git
 
 When the app is run  using - python src\bbpattern\BBPatternApp.py, the following output is generated:
 
-adding a new subTask to he Blackboard
-BBController received a new subTask
-BBController assigning the subTask to a KS worker
-KS worker performing subTask in a Coroutine
-Task long-running: Starting...
-Task long-running: Finished.
-KS completed the subTask and updating the Blackboar
+>> adding a new sub_task to the Blackboard
+>> BBController received a new sub_task
+>> BBController assigning the sub_task to a KS worker
+>> launching KS
+>> KS worker ks-type1 performing sub_task taskType1 in a Coroutine
+>> Task long-running: Starting...
+>> Task long-running: Finished.
+>> KS ks-type1 completed the sub_task taskType1 and updating the Blackboard:
+>> adding a new sub_task to the Blackboard
+>> BBController received a new sub_task
+>> BBController assigning the sub_task to a KS worker
+>> launching KS
+>> KS worker ks-type2 performing sub_task taskType2 in a Coroutine
+>> Task long-running: Starting...
+>> Task long-running: Finished.
+>> KS ks-type2 completed the sub_task taskType2 and updating the Blackboard:
 ```
 
 ### Use Cases
