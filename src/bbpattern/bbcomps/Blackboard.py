@@ -30,7 +30,7 @@ class Blackboard:
             if not bb_sub_task.is_complete:
                 observer.update(bb_sub_task)
 
-    def updateSubTask(self, bb_sub_task: BBSubTask):
+    def update_sub_task(self, bb_sub_task: BBSubTask):
         # if the is_complete is False add this sub_task as a new task
         if not bb_sub_task.is_complete:
             self.add_sub_task(bb_sub_task)

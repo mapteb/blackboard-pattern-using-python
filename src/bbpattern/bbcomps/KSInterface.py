@@ -8,5 +8,5 @@ from bbcomps.Blackboard import Blackboard
 class KSInterface(ABC):
             
     @abstractmethod
-    def process(self, bb_sub_task: BBSubTask, bb: Blackboard):
+    def process(self, bb_sub_task: BBSubTask) -> BBSubTask:
         pass

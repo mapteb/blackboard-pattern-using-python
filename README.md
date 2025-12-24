@@ -27,19 +27,15 @@ When the app is run  using - python src\bbpattern\BBPatternApp.py, the following
 >> adding a new sub_task to the Blackboard
 >> BBController received a new sub_task
 >> BBController assigning the sub_task to a KS worker
->> launching KS
->> KS worker ks-type1 performing sub_task taskType1 in a Coroutine
->> Task long-running: Starting...
->> Task long-running: Finished.
->> KS ks-type1 completed the sub_task taskType1 and updating the Blackboard:
+>> KS worker ks-type1 performing sub_task taskType1
 >> adding a new sub_task to the Blackboard
+>> KS ks-type1 completed the sub_task taskType1
 >> BBController received a new sub_task
 >> BBController assigning the sub_task to a KS worker
->> launching KS
->> KS worker ks-type2 performing sub_task taskType2 in a Coroutine
->> Task long-running: Starting...
->> Task long-running: Finished.
->> KS ks-type2 completed the sub_task taskType2 and updating the Blackboard:
+>> BBController updating the Blackboard with the completed sub_task taskType1
+>> KS worker ks-type2 performing sub_task taskType2
+>> KS ks-type2 completed the sub_task taskType2
+>> BBController updating the Blackboard with the completed sub_task taskType2
 ```
 
 ### Use Cases
