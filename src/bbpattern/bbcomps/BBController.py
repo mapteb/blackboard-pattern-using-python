@@ -23,7 +23,6 @@ class BBController:
         thread.start()
 
     def handle_bb_sub_task(self, bb_sub_task: BBSubTask):       
-        # fire and forget
         # This runs inside one of the 4 worker threads
         ks = self.select_KS(bb_sub_task)
         result = ks.process(bb_sub_task)
