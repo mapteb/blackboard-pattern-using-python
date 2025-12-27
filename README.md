@@ -22,7 +22,12 @@ The blackboard engine (the main() method) receives data (possibly as a data stre
 ```
 git clone https://github.com/mapteb/blackboard-pattern-using-python.git
 
-When the app is run  using - python src\bbpattern\BBPatternApp.py, the following output is generated:
+Running the commands:
+uv venv
+.venv\Scripts\activate
+python src\bbpattern\BBPatternApp.py
+
+produces the following server log output:
 
 >> adding a new sub_task to the Blackboard
 >> BBController received a new sub_task
