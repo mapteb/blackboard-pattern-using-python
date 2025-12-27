@@ -1,6 +1,6 @@
 
-import threading
 from typing import Dict
+from concurrent.futures import ThreadPoolExecutor
 
 from bbcomps.BBSubTask import BBSubTask
 from bbcomps.KSInterface import KSInterface
@@ -12,6 +12,7 @@ class BBController:
         self._name = name
         self._bb = bb
         self.kslist: Dict[str, KSInterface] = ks_workers        # type: ignore
+        self._executor = ThreadPoolExecutor(max_workers=4)
 
     def update(self, bb_sub_task: BBSubTask):
         print(">> BBController received a new sub_task")
@@ -19,8 +20,7 @@ class BBController:
         # find elig KS and launch the KS as a coroutine
         
         print(">> BBController assigning the sub_task to a KS worker")       
-        thread = threading.Thread(target=self.handle_bb_sub_task, args=(bb_sub_task,))
-        thread.start()
+        self._executor.submit(self.handle_bb_sub_task, bb_sub_task)
 
     def handle_bb_sub_task(self, bb_sub_task: BBSubTask):       
         # This runs inside one of the 4 worker threads
